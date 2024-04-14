@@ -1,0 +1,91 @@
+.signup_form{
+    margin: auto;
+    margin-top: 30px;
+    width: 400px;
+    min-height: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.signup_form > h1{
+    color: var(--third-color);
+    text-align: center;
+}
+
+.data_signup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.data_signup > input{
+    width: 100%;
+    height: 35px;
+    padding: 0 10px 0 10px;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.button_signup_form{
+    padding: 10px 0;
+    width: 100%;
+    background-color: var(--almost-black);
+    color: rgb(229, 229, 203);
+    transition: .3s;
+    font-size: 15px;
+    border: 1px solid black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button_signup_form:hover{
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.no_registered{
+    display: none;
+}
+
+.registered{
+    position: absolute;
+    margin: auto;
+    width: 400px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 30px;
+    background-color: var(--secondary-color);
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    color: var(--third-color);
+}
+.registered_button{
+    margin-top: 30px;
+    padding: 10px 0;
+    width: 40%;
+    background-color: var(--almost-black);
+    color: rgb(229, 229, 203);
+    transition: .3s;
+    font-size: 15px;
+    border: 1px solid black;
+    text-align: center;
+    text-decoration: none;
+}
+.registered_button:hover{
+    background-color: var(--primary-color);
+    cursor: pointer;
+}

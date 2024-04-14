@@ -1,0 +1,38 @@
+:root{
+    /* Color palette */
+    --primary-color: rgb(34, 25, 18);
+    --secondary-color: rgb(60, 42, 33);
+    --third-color: rgb(213, 206, 163);
+    --fourth-color: rgb(229, 229, 203);
+    --black: rgb(0, 0, 0);
+    --almost-black: rgb(18, 14, 12);
+    --brillo-home-fotos: linear-gradient(rgba(0, 0, 0, .9));
+}
+
+*{
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--almost-black);
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    width: 900px;
+    margin: auto;
+}
+
+.logo_banner{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 110px;
+    height: 70px;
+    width: 100px;
+}
+

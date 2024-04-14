@@ -1,0 +1,196 @@
+.menu{
+    position: fixed;
+    z-index: 2;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 80px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.menu_option{
+    color: rgb(213, 206, 163);
+    text-decoration: none;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+}
+.menu_option:hover{
+    cursor: pointer;
+}
+.menu_option::after{
+    content: '';
+    position: absolute;
+    background-color: var(--third-color);
+    height: 2px;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform .2s ease-out;
+}
+.menu_option:hover:after {
+    cursor: pointer;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.menu_talks{
+    color: rgb(213, 206, 163);
+    text-decoration: none;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+}
+.menu_talks::after{
+    content: '';
+    position: absolute;
+    background-color: var(--third-color);
+    height: 2px;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform .2s ease-out;
+}
+.talks:hover .menu_talks:after{
+    cursor: pointer;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.talks > .menu_suboptions{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--third-color);
+    padding: 20px;
+    background-color: var(--black);
+    margin-top: 25px;
+    margin-left: -55px;
+    position: absolute;
+}
+.talks:hover{
+    cursor: pointer;
+}
+.talks:hover .menu_suboptions{
+    cursor: pointer;
+    display: flex;
+}
+
+.talks > .menu_suboptions > li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+}
+.talks > .menu_suboptions > li > .menu_suboption{
+    color: var(--third-color);
+    text-decoration: none;
+    font-size: 20px;
+}
+.talks > .menu_suboptions > li:hover{
+    background-color: var(--third-color);
+}
+.talks > .menu_suboptions > li:hover .menu_suboption{
+    color: var(--black);
+}
+.style_menu_suboption{
+    position: absolute;
+    height: 60px;
+    width: 70%;
+    border-radius: 50px 50px 0 0;
+    margin-top: -60px;
+}
+
+.menu_logo{
+    position: absolute;
+    height: 80px;
+    width: 100px;
+    left: 50px;
+}
+.menu_logo > img{
+    height: 100%;
+    width: 100%;
+}
+.menu_logo > img:hover{
+    cursor: pointer;
+}
+
+.menu_login{
+    position: absolute;
+    right: 50px;
+    display: flex;
+    gap: 7px;
+}
+.button_login{
+    padding: 7px;
+    color: var(--third-color);
+    font-size: 15px;
+    background-color: var(--black);
+    text-decoration: none;
+    border: none; 
+}
+.button_checkin{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    font-weight: bold;
+    font-size: 15px;
+    background-color: var(--third-color);
+    border: none; 
+    text-decoration: none;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    transition: .3s;
+}
+.menu_login > .button_checkin:hover{
+    cursor: pointer;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+}
+.menu_login > .button_login:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.menu_logged{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    right: 50px;
+    gap: 5px;
+}
+
+.logged_name_user{
+    color: var(--third-color);
+}
+
+.button_close_session{
+    background-color: black;
+    border: none;
+    color: rgb(149, 149, 149);
+    transition: .3s;
+}
+
+.button_close_session:hover{
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    color: rgb(255, 98, 98);
+}
