@@ -41,7 +41,8 @@ export function SignUpForm(){
                     alert("Error")
                 }
             }).catch(error =>{
-                alert(error)
+                console.log(error)
+                alert("El usuario no pudo ser creado")
             })
         }else{
             alert("Todos los campos han de ser rellenados")
@@ -66,19 +67,22 @@ export function SignUpForm(){
     return(
         !authentication.isAuthenticated ?(        
                 <form className='signup_form' onSubmit={handleSubmit}>
-                    <h1>Create an account</h1>
+                    <h1>Crear una cuenta</h1>
                     <div className='data_signup'>
-                        <input className='user_input' name="user" type="text" value={userName} placeholder='User name' onChange={updateUserName} />
-                        <input type="text" name='email' value={userEmail} onChange={updateUserEmail} placeholder="Email"/>
-                        <input className='password_input' name='password' type="text" value={userPassword} placeholder='Password' onChange={updatePassword} />
+                        <input className='user_input' name="user" type="text" value={userName} placeholder='Nombre de usuario' onChange={updateUserName} />
+                        <input type="text" name='email' value={userEmail} onChange={updateUserEmail} placeholder="Correo"/>
+                        <input className='password_input' name='password' type="text" value={userPassword} placeholder='Contraseña' onChange={updatePassword} />
                     </div>
                     <div className={registered}>
-                        <h2>¡NEW ACCOUNT {`"${userName}"`} CREATED SUCCESSFULLY!</h2>
-                        <h3>Now you can log in</h3>
-                        <Link className='registered_button' to="/login">Log in</Link>
+                        <h2>¡Nueva cuenta {`"${userName}"`} creada con éxito!</h2>
+                        <h3>Ahora puedes iniciar sesión</h3>
+                        <Link className='registered_button' to="/login">Iniciar sesión</Link>
                     </div>
-                    <input className='button_signup_form' type="submit" value='Sign Up'/>
-                    <Link className='no_account' to="/login">Log in</Link>
+                    <input className='button_signup_form' type="submit" value='Registrarse'/>
+                    
+                    <div className='no_account_container'>
+                        <Link className='no_account' to="/login">Iniciar sesión</Link>
+                    </div>
                 </form>
         ):(
             <Navigate to="/"></Navigate>

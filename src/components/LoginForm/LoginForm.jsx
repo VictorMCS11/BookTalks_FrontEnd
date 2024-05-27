@@ -13,17 +13,20 @@ export function LoginForm(){
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+
         const user = Object.fromEntries(new window.FormData(e.target))
-        console.log({user})
-        UserService.getUser(userName, userPassword).then((response) =>{
-            if(response[0].name === user.name && response[0].password === user.password){
+
+        UserService.getUser({ user }).then((response) =>{
+            if(response.name === user.name && response.password === user.password){
                 window.localStorage.setItem('loggedUser', JSON.stringify(response))
                 window.location.reload(true)
             }else{
                 console.log(response)
+                alert("Usuario incorrecto, asegurese de escribir bien el usuario y contraseña")
             }
         }).catch(error =>{
             console.log(error)
+            alert("Usuario incorrecto, asegurese de escribir bien el usuario y contraseña")
         })
     }
 
@@ -42,13 +45,15 @@ export function LoginForm(){
     return(
         !authentication.isAuthenticated ?(
         <form className='login_form' onSubmit={handleSubmit}>
-            <h1>Login to BookTalk</h1>
+            <h1>Iniciar sesión</h1>
             <div className='data_login'>
-                <input className='user_input' type="text" placeholder='User name' onChange={userNameChange} value={userName} name='name' />
-                <input className='password_input' type="text" placeholder='Password' onChange={userPasswordChange} value={userPassword} name='password' />
+                <input className='user_input' type="text" placeholder='Nombre de usuario' onChange={userNameChange} value={userName} name='name' />
+                <input className='password_input' type="text" placeholder='Contraseña' onChange={userPasswordChange} value={userPassword} name='password' />
             </div>
-            <input className='button_login_form' type="submit" value='Log in'/>
-            <Link className='no_account' to="/signup">Create an account here</Link>
+            <input className='button_login_form' type="submit" value='Iniciar sesión'/>
+            <div className='no_account_container'>
+                <Link className='no_account' to="/signup">Crear nueva cuenta aquí</Link>
+            </div>
         </form>):(
             <Navigate to="/"></Navigate>
         )

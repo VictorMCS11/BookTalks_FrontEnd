@@ -85,7 +85,7 @@
     display: flex;
 }
 
-.talks > .menu_suboptions > li{
+.talks > .menu_suboptions > .menu_suboption{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,17 +93,16 @@
     height: 40px;
     width: 120px;
 }
-.talks > .menu_suboptions > li > .menu_suboption{
+.talks > .menu_suboptions > .menu_suboption{
     color: var(--third-color);
     text-decoration: none;
     font-size: 20px;
 }
-.talks > .menu_suboptions > li:hover{
+.talks > .menu_suboptions > .menu_suboption:hover{
     background-color: var(--third-color);
-}
-.talks > .menu_suboptions > li:hover .menu_suboption{
     color: var(--black);
 }
+
 .style_menu_suboption{
     position: absolute;
     height: 60px;

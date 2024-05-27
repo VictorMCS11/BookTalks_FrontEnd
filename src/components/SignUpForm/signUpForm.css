@@ -1,15 +1,15 @@
 .signup_form{
-    margin: auto;
-    margin-top: 30px;
+    margin: 30px auto auto auto;
     width: 400px;
-    min-height: 375px;
-    display: flex;
+    height: 410px;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
-    padding: 30px;
+    gap: 50px; */
+    padding: 50px 30px;
+    border-radius: 5px;
     background-color: var(--secondary-color);
-    justify-content: center;
+    /* justify-content: center; */
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -18,6 +18,7 @@
 .signup_form > h1{
     color: var(--third-color);
     text-align: center;
+    top: 0;
 }
 
 .data_signup {
@@ -25,6 +26,7 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    margin-top: 30px;
 }
 
 .data_signup > input{
@@ -33,6 +35,7 @@
     padding: 0 10px 0 10px;
     outline: none;
     border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
 }
 
 .button_signup_form{
@@ -43,13 +46,26 @@
     transition: .3s;
     font-size: 15px;
     border: 1px solid black;
-    text-align: center;
-    text-decoration: none;
+    border-radius: 5px;
+    margin: 30px 0 30px 0;
 }
 
 .button_signup_form:hover{
     background-color: var(--primary-color);
     cursor: pointer;
+}
+
+.no_account_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.no_account{
+    color: rgb(0, 0, 0);
+}
+.no_account:hover{
+    color: var(--almost-black);
 }
 
 .no_registered{

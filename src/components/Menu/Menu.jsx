@@ -14,7 +14,7 @@ export function Menu() {
         const loggedUserJSON = window.localStorage.getItem('loggedUser')
         if(loggedUserJSON){
             const name = JSON.parse(loggedUserJSON)
-            setUserName(name[0].name)
+            setUserName(name.name)
         }
     }, [])
 
@@ -25,27 +25,27 @@ export function Menu() {
 
     const links = [
         {
-            name: "home",
+            name: "inicio",
             href: "/"
         },
         {
-            name: "forum",
+            name: "foros",
             href: "/forum"
         },
         {
-            name: "reviews",
+            name: "reseñas",
             href: "/reviews"
         },
         {
-            name: "contact",
+            name: "contacto",
             href: "/contact"
         },
         {
-            name: "log in",
+            name: "Iniciar sesión",
             href: "/login"
         },
         {
-            name: "sign up",
+            name: "Registrarse",
             href: "/signup"
         },
     ]
@@ -56,11 +56,11 @@ export function Menu() {
                 <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /></Link>
                 <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
                 <div className="talks">
-                    <a className="menu_talks">talks</a>
+                    <a className="menu_talks">charlas</a>
                     <ul className="menu_suboptions">
                         <div className="style_menu_suboption"></div>
-                        <li><Link to={links[1].href} className="menu_suboption">{links[1].name}</Link></li>
-                        <li><Link to={links[2].href} className="menu_suboption">{links[2].name}</Link></li>
+                        <Link to={links[1].href} className="menu_suboption">{links[1].name}</Link>
+                        <Link to={links[2].href} className="menu_suboption">{links[2].name}</Link>
                     </ul>
                 </div>
                 <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
@@ -77,8 +77,8 @@ export function Menu() {
                 <a className="menu_talks">talks</a>
                 <ul className="menu_suboptions">
                     <div className="style_menu_suboption"></div>
-                    <li><Link to={links[1].href} className="menu_suboption">{links[1].name}</Link></li>
-                    <li><Link to={links[2].href} className="menu_suboption">{links[2].name}</Link></li>
+                    <Link to={links[1].href} className="menu_suboption">{links[1].name}</Link>
+                    <Link to={links[2].href} className="menu_suboption">{links[2].name}</Link>
                 </ul>
             </div>
             <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
