@@ -50,7 +50,7 @@ export function ContactForm(){
         setTimeout(() => {
             setPermission('approved');
             setLoading(false)
-          }, "5000");
+          }, "3000");
     }
 
     return(
@@ -73,7 +73,7 @@ export function ContactForm(){
                 </div>
             </div>
 
-            <input style={{display: 'none'}} type="text" name='username' value={username} />
+            <input style={{display: 'none'}} readOnly type="text" name='username' value={username} />
 
             <div className="input input_mensaje">
                 <label className="mensaje">Mensaje</label>

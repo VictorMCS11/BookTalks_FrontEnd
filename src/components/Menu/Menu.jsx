@@ -74,7 +74,7 @@ export function Menu() {
             <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /></Link>
             <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
             <div className="talks">
-                <a className="menu_talks">talks</a>
+                <a className="menu_talks">charlas</a>
                 <ul className="menu_suboptions">
                     <div className="style_menu_suboption"></div>
                     <Link to={links[1].href} className="menu_suboption">{links[1].name}</Link>
@@ -84,7 +84,7 @@ export function Menu() {
             <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
             <div className="menu_logged">
                 <p className="logged_name_user">{userName}</p>
-                <button className="button_close_session" onClick={closeSession}>close session</button>
+                <button className="button_close_session" onClick={closeSession}>cerrar sesión</button>
             </div>
         </section>
         )

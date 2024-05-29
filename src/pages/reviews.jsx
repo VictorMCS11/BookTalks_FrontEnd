@@ -5,7 +5,7 @@ export function Reviews(){
         <>
             <Menu></Menu>
             <div className="page">
-                <h1 style={{marginTop:'100px'}}>Reviews</h1>
+                <h1 style={{marginTop:'100px'}}>Reseñas</h1>
             </div>
         </>
     )

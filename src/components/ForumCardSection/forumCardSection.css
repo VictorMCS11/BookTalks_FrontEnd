@@ -1,0 +1,163 @@
+.forumContainer{
+    z-index: 0;
+    width: 100%;
+    margin-top: 30px;
+    padding: 50px 30px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.forumCard{
+    background-color: var(--primary-color);
+    width: 100%;
+    max-height: 600px;
+    padding: 10px;
+    padding-bottom: 0;
+    border-radius: 5px;
+    border-top: 2px solid black;
+    position: relative;
+    /* -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.forumInfo{
+    min-height: 75px;
+    /* background-color: aqua; */
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forumTitle{
+    color: var(--third-color);
+}
+
+.forumReleaseDate{
+    color: var(--third-color);
+}
+
+
+.moreButton{
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid var(--almost-black);
+    background-color: var(--third-color);
+    height: 30px;
+    transition: .2s;
+}
+.moreButton:hover{
+    cursor: pointer;
+    background-color: rgb(140, 130, 100);
+    border: 2px solid var(--primary-color);
+    height: 30px;
+}
+
+.moreButton > img{
+    margin: auto;
+    height: 25px;
+    transition: .2s;
+}
+.moreButton:hover img{
+    margin-top: 2px;
+}
+
+.moreButtonOpened{
+    z-index: 3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid var(--almost-black);
+    background-color: rgb(140, 130, 100);
+    height: 30px;
+    transition: .2s;
+}
+.moreButtonOpened:hover{
+    cursor: pointer;
+    background-color: rgb(140, 130, 100);
+    border: 2px solid var(--primary-color);
+    height: 30px;
+}
+.moreButtonOpened > img{
+    transform: rotate(180deg);
+    margin: auto;
+    height: 25px;
+    transition: .2s;
+}
+.moreButtonOpened:hover img{
+    margin-top: -2px;
+}
+
+.more{
+    overflow: hidden;
+    height: 0px;
+    width: 100%;
+    padding: 20px;
+    transition: .2s;
+}
+.moreOpened{
+    overflow: auto;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    height: 250px;
+    background-color: var(--primary-color);
+    transition: .2s;
+}
+
+.addMessage{
+    display: none;
+}
+
+.moreOpened .addMessage{
+    z-index: -1;
+    display: block;
+    left: -135px;
+    position: absolute;
+    height: 250px;
+    width: 150px;
+    padding: 10px 25px 10px 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--secondary-color);
+}
+.moreOpened .addMessageButton{
+    background-color: rgb(50, 110, 75);
+    border: 1px solid rgb(50, 110, 75);
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+    padding: 0 10px;
+    transition: .3s;
+}
+.moreOpened .addMessageButton:hover{
+    cursor: pointer;
+    border-color:  rgb(135, 249, 183);
+}
+.moreOpened .messageAddText{
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    height: 230px;
+    background-color: var(--primary-color);
+    color: white;
+}

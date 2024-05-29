@@ -48,7 +48,7 @@ export function LoginForm(){
             <h1>Iniciar sesión</h1>
             <div className='data_login'>
                 <input className='user_input' type="text" placeholder='Nombre de usuario' onChange={userNameChange} value={userName} name='name' />
-                <input className='password_input' type="text" placeholder='Contraseña' onChange={userPasswordChange} value={userPassword} name='password' />
+                <input className='password_input' type="password" placeholder='Contraseña' onChange={userPasswordChange} value={userPassword} name='password' />
             </div>
             <input className='button_login_form' type="submit" value='Iniciar sesión'/>
             <div className='no_account_container'>

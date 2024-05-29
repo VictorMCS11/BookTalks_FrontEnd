@@ -64,7 +64,7 @@ h1{
 }
 .input > label{
     height: 30px;
-    color: rgb(229, 229, 203);
+    color: var(--third-color);
 }
 .input > input{
     height: 30px;
