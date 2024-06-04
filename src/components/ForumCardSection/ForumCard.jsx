@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import arrow_more from '../../assets/img/arrow-more.svg'
-import { MessageCardsSection } from '../MessageCardSection/MessageCardSection.jsx'
+// import { MessageCardsSection } from '../MessageCardSection/MessageCardSection.jsx'
+// import '../MessageCardSection/messageCardsSection.css'
 import MessageService from '../../services/MessageService.js'
 import { useAuth } from '../Authentication/AuthProvider.jsx'
 import loadImage from '../../assets/img/loading.svg'
@@ -58,6 +59,21 @@ export function ForumCard({ forumId, title, releaseDate, opened }){
         }, 500)
     }
 
+    const deleteMessage = (e) =>{
+        setIsLoading(true)
+        e.preventDefault()
+        const messageId = Object.fromEntries( new window.FormData(e.target)).messageId
+        // setMessageId(idFromMessage)
+        MessageService.deleteMessage(messageId).then(response =>{
+            console.log(response)
+        }).catch(error =>{
+            console.log(error)
+        })
+        setTimeout(() =>{
+            setIsLoading(false)
+        }, 500)
+    }
+
     useEffect(() =>{
         if(authentication.isAuthenticated){
             const dataUser = JSON.parse(window.localStorage.getItem('loggedUser'))
@@ -85,7 +101,26 @@ export function ForumCard({ forumId, title, releaseDate, opened }){
                     <button className="addMessageButton">Añadir mensaje</button>
                 </form>
                 <div className={'sendingMessage'+sendingMessageClass}><img src={loadImage} alt="" /></div>
-                <MessageCardsSection messages={messageList} userId={userId} />
+                {/* <MessageCardsSection messages={messageList} userId={userId} /> */}
+                <div className='messageCardsSec'>
+                {
+                messageList?.map(message =>(
+                    <form className={'messageCard'+sendingMessageClass} key={message.messageId} onSubmit={deleteMessage}>
+                        <strong className='messageSubject'>{message.user.name}</strong>
+                        <span className='messageText'>{message.content}</span>
+                        <p className='messageDate'>{message.releaseDate}</p>
+                        <input readOnly type="number" value={message.messageId} name='messageId' style={{display: 'none'}} />
+                        {   /* condicion que comprueba que el usuario loggeado puede borrar mensajes */
+                            message.user.userId === userId ?(
+                                <button className='messageDeleteButton'>Borrar</button>
+                            ):(
+                                null
+                            )
+                        }
+                    </form>
+                ))
+                } 
+        </div>
             </div>
         </div>
     )
