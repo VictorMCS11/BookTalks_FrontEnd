@@ -37,12 +37,13 @@
     outline: none;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
+    background-color: rgb(245, 245, 245);
 }
 
 .button_signup_form{
     padding: 10px 0;
     width: 100%;
-    background-color: var(--almost-black);
+    background-color: var(--black);
     color: rgb(229, 229, 203);
     transition: .3s;
     font-size: 15px;
@@ -52,7 +53,7 @@
 }
 
 .button_signup_form:hover{
-    background-color: var(--primary-color);
+    background-color: var(--almost-black);
     cursor: pointer;
 }
 
@@ -83,6 +84,7 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    border-radius: 5px;
     gap: 30px;
     background-color: var(--secondary-color);
     justify-content: center;

@@ -1,104 +1,33 @@
 import './forumCardSection.css'
 import ForumService from '../../services/FoumService.js'
 import { ForumCard } from './ForumCard.jsx'
+import { useEffect } from 'react'
+import { useState } from 'react'
 // import { MessageCard } from '../MessageCardSection/MessageCardSection.jsx'
 // import { useAuth } from '../Authentication/AuthProvider.jsx'
 
 export function ForumCardSection(){
 
-    const forumList = [
-        {
-            id: 1, 
-            userId: 1, 
-            title: 'Libros de aventuras', 
-            releaseDate: '07/07/2012',
-            messages: [
-                    {
-                        id: 1, 
-                        userId: 1, 
-                        subject: 'Asunto1', 
-                        text: 'Hola que tal este es el mensaje',
-                        releaseDate: '07/07/2012'
-                    },
-                    {
-                        id: 2, 
-                        userId: 4, 
-                        subject: 'Asunto 2', 
-                        text: 'Hola que tal este es el mensaje', 
-                        releaseDate: '24/09/2023'
-                    },
-                    {
-                        id: 2, 
-                        userId: 4, 
-                        subject: 'Asunto 3', 
-                        text: 'Hola que tal este es el mensaje', 
-                        releaseDate: '24/09/2023'
-                    },
-                    {
-                        id: 2, 
-                        userId: 4, 
-                        subject: 'Asunto 4', 
-                        text: 'Hola que tal este es el mensaje', 
-                        releaseDate: '24/09/2023'
-                    },
-                ]
-        },
-        {
-            id: 2, 
-            userId: 4, 
-            title: 'Beneficios de leer', 
-            releaseDate: '24/09/2023',
-            messages: [
-                {
-                    id: 1, 
-                    userId: 1, 
-                    subject: 'Asunto 1', 
-                    text: 'Hola que tal este es el mensaje',
-                    releaseDate: '07/07/2012'
-                },
-                {
-                    id: 2, 
-                    userId: 4, 
-                    subject: 'Asunto 2', 
-                    text: 'Hola que tal este es el mensaje',
-                    releaseDate: '24/09/2023'
-                },
-            ]
-        },
-        {
-            id: 2, 
-            userId: 4, 
-            title: 'Beneficios de leer', 
-            releaseDate: '24/09/2023',
-            messages: [
-                {
-                    id: 1, 
-                    userId: 1, 
-                    subject: 'Asunto 1', 
-                    text: 'Hola que tal este es el mensaje',
-                    releaseDate: '07/07/2012'
-                },
-                {
-                    id: 2, 
-                    userId: 4, 
-                    subject: 'Asunto 2', 
-                    text: 'Hola que tal este es el mensaje',
-                    releaseDate: '24/09/2023'
-                },
-            ]
-        },
-    ]
+    const [forumList, setForumList] = useState([])
+
+    useEffect(() =>{
+        ForumService.getForums().then(response =>{
+            setForumList(response)
+        }).catch(error =>{
+            console.log(error)
+        })
+    }, [])
 
     return(
         <div className='forumContainer'>
             {
-                forumList.map(forum =>(
+                forumList?.map(forum =>(
                     <ForumCard
-                        key={forum.id} 
+                        key={forum.forumId} 
+                        forumId={forum.forumId}
                         title={forum.title} 
                         releaseDate={forum.releaseDate}
-                        opened={false}
-                        messages={forum.messages}>
+                        opened={false}>
                     </ForumCard>
                 ))
             }

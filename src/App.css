@@ -1,11 +1,12 @@
 :root{
     /* Color palette */
     --primary-color: rgb(34, 25, 18);
-    --secondary-color: rgb(60, 42, 33);
+    --secondary-color: rgb(58, 45, 36);
     --third-color: rgb(213, 206, 163);
     --fourth-color: rgb(229, 229, 203);
     --black: rgb(0, 0, 0);
     --almost-black: rgb(18, 14, 12);
+    --background-main: rgb(70, 60, 55);
     --brillo-home-fotos: linear-gradient(rgba(0, 0, 0, .9));
 }
 
@@ -17,13 +18,13 @@
 }
 
 body{
-    background-color: var(--almost-black);
+    background-color: var(--background-main);
 }
 
 .page{
     display: flex;
     flex-direction: column;
-    /* height: 100vh; */
+    min-height: 100vh;
     width: 900px;
     margin: auto;
 }
@@ -35,4 +36,47 @@ body{
     height: 70px;
     width: 100px;
 }
+
+/* .reviewBooksButtons{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.reviewBooksButtons > button{
+    width: 20%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    background-color: var(--almost-black);
+    color: var(--third-color);
+    transition: .2s;
+}
+.reviewBooksButtons > button:hover{
+    width: 20%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: black;
+}
+
+.reviewsSelected{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    /* -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+/* }  */
+/* .booksSelected{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+} */
+
+
+
 

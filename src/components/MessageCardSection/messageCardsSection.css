@@ -1,8 +1,8 @@
 .messageCardsSec{
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-color);
-    /* margin-top: 20px; */
+    /* background-color: var(--secondary-color); */
+    margin: 10px;
     gap: 10px;
 }
 .messageCardsSec > h2{
@@ -13,7 +13,7 @@
     position: relative;
     height: auto;
     width: 100%;
-    background-color: var(--secondary-color);
+    background-color: var(--almost-black);
     color: var(--third-color);
     margin: auto;
     padding: 10px;
@@ -29,4 +29,19 @@
 .messageDate{
     position: absolute;
     right: 30px;
+}
+
+.messageDeleteButton{
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    background-color: rgb(85, 25, 25);
+    border: 1px solid rgb(255, 60, 60);
+    color: var(--third-color);
+    padding: 1px 2px;
+    border-radius: 5px;
+}
+.messageDeleteButton:hover{
+    cursor: pointer;
+    background-color: rgb(140, 45, 45);
 }

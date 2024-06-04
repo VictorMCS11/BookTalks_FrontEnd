@@ -71,7 +71,7 @@ export function SignUpForm(){
                     <div className='data_signup'>
                         <input className='user_input' name="user" type="text" value={userName} placeholder='Nombre de usuario' onChange={updateUserName} />
                         <input type="text" name='email' value={userEmail} onChange={updateUserEmail} placeholder="Correo"/>
-                        <input className='password_input' name='password' type="text" value={userPassword} placeholder='Contraseña' onChange={updatePassword} />
+                        <input className='password_input' name='password' type="password" value={userPassword} placeholder='Contraseña' onChange={updatePassword} />
                     </div>
                     <div className={registered}>
                         <h2>¡Nueva cuenta {`"${userName}"`} creada con éxito!</h2>

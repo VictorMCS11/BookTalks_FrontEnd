@@ -84,6 +84,5 @@ export function ContactForm(){
                 <input type="submit" value="Enviar" />
             </div>
         </form>
-        
     )
 }
