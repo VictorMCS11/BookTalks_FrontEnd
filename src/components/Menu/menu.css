@@ -113,9 +113,14 @@
 
 .menu_logo{
     position: absolute;
-    height: 80px;
-    width: 100px;
+    margin-top: 5px;
+    height: 60px;
+    width: 90px;
     left: 50px;
+    display: flex;
+    align-items: end;
+    gap: 5px;
+    text-decoration: none;
 }
 .menu_logo > img{
     height: 100%;
@@ -123,6 +128,13 @@
 }
 .menu_logo > img:hover{
     cursor: pointer;
+}
+.menu_logo > span{
+    text-decoration: none;
+    color: rgb(255, 225, 130);
+    font-size: 30px;
+    margin-bottom: 7px;
+    font-family: segoe;
 }
 
 .menu_login{
