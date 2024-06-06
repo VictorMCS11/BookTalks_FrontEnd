@@ -119,7 +119,7 @@
     left: 50px;
     display: flex;
     align-items: end;
-    gap: 5px;
+    gap: 2px;
     text-decoration: none;
 }
 .menu_logo > img{
