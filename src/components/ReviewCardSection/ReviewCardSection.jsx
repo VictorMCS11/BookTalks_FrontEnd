@@ -78,7 +78,7 @@ export function ReviewCardSection({ bookId, authentication }){
         setTimeout(() => {
             setWarningType('')
             setReviewSendIsLoading(false)
-          }, 4000);
+          }, 2000);
     }
 
     const deleteReview = (e) =>{
