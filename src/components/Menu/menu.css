@@ -2,15 +2,30 @@
     position: fixed;
     z-index: 10;
     background-color: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    height: 80px;
-    width: 100%;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+.menu_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    height: 100%;
+    width: 100%;
+    padding: 0 50px;
+}
+.menu_sections{
+    position: absolute;
+    display: flex;
+    gap: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .menu_option{
     color: rgb(213, 206, 163);
@@ -112,7 +127,7 @@
 }
 
 .menu_logo{
-    position: absolute;
+    /* position: absolute; */
     margin-top: 5px;
     height: 60px;
     width: 90px;
@@ -138,8 +153,6 @@
 }
 
 .menu_login{
-    position: absolute;
-    right: 50px;
     display: flex;
     gap: 7px;
 }
@@ -180,12 +193,10 @@
 }
 
 .menu_logged{
-    position: absolute;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    right: 50px;
-    gap: 5px;
+    align-items: center;
+    gap: 7px;
 }
 
 .logged_name_user{
@@ -205,3 +216,9 @@
     border: none;
     color: rgb(255, 98, 98);
 }
+
+@media (max-width: 910px) {
+    .menu{
+        width: 100vw;
+    }
+} 

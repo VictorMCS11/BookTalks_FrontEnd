@@ -19,12 +19,15 @@
 
 body{
     background-color: var(--background-main);
+    width: auto;
+    height: auto;
+    overflow-x: hidden;
 }
 
 .page{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: auto;
     width: 900px;
     margin: auto;
 }
@@ -36,6 +39,12 @@ body{
     height: 90px;
     width: 135px;
 }
+@media (max-width: 910px) {
+    .page {
+        width: 100%;
+        height: auto;
+    }
+} 
 
 /* .reviewBooksButtons{
     width:100%;
