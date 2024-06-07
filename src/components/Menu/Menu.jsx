@@ -25,19 +25,19 @@ export function Menu() {
 
     const links = [
         {
-            name: "inicio",
+            name: "Inicio",
             href: "/"
         },
         {
-            name: "foros",
+            name: "Foros",
             href: "/forum"
         },
         {
-            name: "reseñas",
+            name: "Reseñas",
             href: "/reviews"
         },
         {
-            name: "contacto",
+            name: "Contacto",
             href: "/contact"
         },
         {

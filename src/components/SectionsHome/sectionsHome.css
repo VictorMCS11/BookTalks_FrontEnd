@@ -66,18 +66,18 @@
 }
 
 @media(max-width: 910px){
+    .sections{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 115px;
+        gap: 30px;
+    }
     .sections > div{
         background-repeat: no-repeat;
         background-size: cover;
         background-position-x: center;
         min-height: 200px;
-    }
-    .sections{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        margin-top: 30px;
-        gap: 30px;
     }
     .sections > div > a > h2{
         z-index: 1;
