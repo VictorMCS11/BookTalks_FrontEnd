@@ -19,7 +19,7 @@
 
 body{
     background-color: var(--background-main);
-    width: auto;
+    width: 100vw;
     height: auto;
     overflow-x: hidden;
 }

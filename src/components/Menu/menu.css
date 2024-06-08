@@ -219,6 +219,26 @@
 
 @media (max-width: 910px) {
     .menu{
-        width: 100vw;
+        height: 40px;
+    }
+    .menu_logo{
+        height: 30px;
+    }
+    .menu_sections{
+        display: none;
+    }
+    .menu_logo > span{
+        text-decoration: none;
+        color: rgb(255, 225, 130);
+        font-size: 20px;
+        margin-bottom: 0px;
+        font-family: segoe;
+    }
+    .menu_container{
+        padding: 0 20px;
+    }
+    .menu_login{
+        display: none;
+        gap: 7px;
     }
 } 
