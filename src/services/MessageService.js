@@ -1,6 +1,7 @@
-const MESSAGE_BASE_REST_API_GET_MESSAGES = "http://localhost:8080/api/v1/messages/messagesByForum/"
-const MESSAGE_BASE_REST_API_CREATE_MESSAGE = "http://localhost:8080/api/v1/messages/message"
-const MESSAGE_BASE_REST_API_DELETE_MESSAGE = "http://localhost:8080/api/v1/messages/message/"
+const MESSAGE_BASE_REST_API_GET_MESSAGES = "http://localhost:3000/api/forumMessages"
+const MESSAGE_BASE_REST_API_CREATE_MESSAGE = "http://localhost:3000/api/forumMessages/addForumMessage"
+const MESSAGE_BASE_REST_API_DELETE_MESSAGE = "http://localhost:3000/api/forumMessages/removeForumMessage/"
+const COLUMN = "forum"
 
 class MessageService{
 
@@ -14,21 +15,22 @@ class MessageService{
     }
 
     async getMessages(forumId){
-        const response = await fetch(MESSAGE_BASE_REST_API_GET_MESSAGES + forumId, {
-           method: 'POST',
-           headers: {'Content-Type': 'application/json'}
-        })
-        const data = await response.json()
-        return data
+      const response = await fetch(MESSAGE_BASE_REST_API_GET_MESSAGES, {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify({ id: forumId, column: COLUMN })
+      })
+      const data = await response.json()
+      return data
    }
 
    async deleteMessage(messageId){
-      console.log(messageId)
       const response = await fetch(MESSAGE_BASE_REST_API_DELETE_MESSAGE + messageId, {
          method: 'DELETE',
          headers: {'Content-Type': 'application/json'}
       })
-      return response
+      const data = await response.json()
+      return data
    }
 }
 

@@ -94,7 +94,7 @@ export function Menu() {
                         <button className="button_close_session" onClick={closeSession}>cerrar sesión</button>
                     </div>
                 </div>
-        </section>
+            </section>
         )
     )
 }

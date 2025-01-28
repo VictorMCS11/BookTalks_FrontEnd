@@ -17,6 +17,9 @@
 
 h1{
     color: var(--third-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2em;
 }
 
 .denied{
@@ -145,10 +148,10 @@ h1{
 
 @media (max-width: 910px){
     .contact_form{
-        background-color: rgba(0, 0, 0, .1);
+        background-color: rgba(0, 0, 0, 0);
         -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
-        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0);
     }
     .subject_email{
         flex-direction: column;

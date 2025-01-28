@@ -200,6 +200,7 @@
 }
 
 .logged_name_user{
+    margin: 0;
     color: var(--third-color);
 }
 
@@ -218,9 +219,9 @@
 }
 
 @media (max-width: 910px) {
-    .menu{
+    /* .menu{
         height: 40px;
-    }
+    } */
     .menu_logo{
         height: 30px;
     }
@@ -240,5 +241,5 @@
     .menu_login{
         display: none;
         gap: 7px;
-    }
+    } 
 } 

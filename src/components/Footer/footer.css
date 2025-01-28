@@ -32,10 +32,12 @@ hr{
 }
 .footer > .footer_container > p{
     color: var(--third-color);
+    text-align: center;
 }
 
 @media (max-width: 910px) {
     .footer {
-        width: 100vw;
+        /* margin-top: 30px; */
+        width: 100%;
     }
 } 

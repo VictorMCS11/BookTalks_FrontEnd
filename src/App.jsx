@@ -1,46 +1,29 @@
 import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './components/Authentication/AuthProvider.jsx'
-import { LogIn } from './pages/login.jsx'
-import { SignUp } from './pages/signup.jsx'
-import { Home } from './pages/home.jsx'
-import { Contact } from './pages/contact.jsx'
-import { Forum } from './pages/forum.jsx'
-import { Reviews } from './pages/reviews.jsx'
+import  LoginPage  from './pages/LoginPage.jsx'
+import  SignupPage  from './pages/SignupPage.jsx'
+import  HomePage  from './pages/HomePage.jsx'
+import  ContactPage  from './pages/ContactPage.jsx'
+import  ForumPage  from './pages/ForumPage.jsx'
+import  ReviewsPage  from './pages/ReviewsPage.jsx'
+import Layout from './components/Layout.jsx'
 
 function App() {
-
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />
-    },
-    {
-      path: "/login",
-      element: <LogIn/>
-    },
-    {
-      path: '/signup',
-      element: <SignUp />,
-    },
-    {
-      path: "/contact",
-      element: <Contact />
-    },
-    {
-      path: "/forum",
-      element: <Forum />
-    },
-    {
-      path: "/reviews",
-      element: <Reviews />
-    }
-  ])
 
   return (
     <>
       <AuthProvider>
-        <RouterProvider router={router}></RouterProvider>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<HomePage />}></Route>
+            <Route path='/login' element={<LoginPage />}></Route>
+            <Route path='/signup' element={<SignupPage />}></Route>
+            <Route path='/contact' element={<ContactPage />}></Route>
+            <Route path='/forum/*' element={<ForumPage />}></Route>
+            <Route path='/reviews/*' element={<ReviewsPage />}></Route>
+          </Route>
+        </Routes>
       </AuthProvider>
     </>
   )

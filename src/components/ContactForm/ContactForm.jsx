@@ -56,7 +56,7 @@ export function ContactForm(){
     return(
         <form className="contact_form" onSubmit={handleSubmit} ref={refForm}>
             <h4 className={permission}>{permissionMessage}</h4>
-            <h1>Envianos un correo</h1>
+            <h1>Envíanos un correo</h1>
 
             <div className='loading' style={loading ? {display:'flex'} : {display:'none'}}>
                 <img className='loading_svg' src="../../src/assets/img/loading.svg" alt="" />

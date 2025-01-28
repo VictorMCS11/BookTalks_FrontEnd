@@ -15,10 +15,9 @@ export function LoginForm(){
         e.preventDefault()
 
         const user = Object.fromEntries(new window.FormData(e.target))
-
         UserService.getUser({ user }).then((response) =>{
-            if(response.name === user.name && response.password === user.password){
-                window.localStorage.setItem('loggedUser', JSON.stringify(response))
+            if(response.body[0].name === user.name && response.body[0].password === user.password){
+                window.localStorage.setItem('loggedUser', JSON.stringify(response.body[0]))
                 window.location.reload(true)
             }else{
                 console.log(response)
@@ -33,13 +32,11 @@ export function LoginForm(){
     const userNameChange = (e) =>{
         const newUserName = e.target.value
         setUserName(newUserName)
-        console.log(newUserName)
     }
 
     const userPasswordChange = (e) =>{
         const newUserPassword = e.target.value
         setUserPassword(newUserPassword)
-        console.log(newUserPassword)
     }
 
     return(
