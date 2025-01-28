@@ -7,7 +7,7 @@ export default function SignupPage(){
                 className="logo_banner" 
                 src="src/assets/img/logo.png" 
                 alt=""
-                style={{'height': '60px', 'object-fit': 'contain', 'marginTop': '120px'}}
+                style={{'height': '60px', 'objectFit': 'contain', 'marginTop': '120px'}}
              />
             <SignUpForm />
 

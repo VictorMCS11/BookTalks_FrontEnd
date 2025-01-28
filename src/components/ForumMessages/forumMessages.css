@@ -19,11 +19,6 @@
     display: flex;
     justify-content: space-between;
 }
-.forumHead > .forumTitle > span{
-    color: var(--almost-black);
-    font-size: 15px;
-
-}
 
 .moreOpened{
     overflow: auto;
@@ -133,6 +128,7 @@
 }
 .messageText{
     overflow-wrap: break-word; 
+    font-size: 12px;
 }
 .messageDate{
     margin: 0;
@@ -158,3 +154,37 @@
     cursor: pointer;
     background-color: rgb(140, 45, 45);
 }
+
+
+@media (max-width: 910px) {
+    .messageSubject{
+        font-size: 12px;
+    }
+    .messageText{
+        overflow-wrap: break-word; 
+        font-size: 11px;
+    }
+    .messageDeleteButton{
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background-color: rgb(85, 25, 25);
+        border: 1px solid rgb(255, 60, 60);
+        color: var(--third-color);
+        padding: 1px 1px;
+        border-radius: 5px;
+        z-index: 1;
+    }
+    .messageDeleteButton:hover{
+        cursor: none;
+        background-color: none;
+    }
+    .messageDate{
+        margin: 0;
+        font-size: 10px;
+        padding: 0;
+        color: rgba(255, 230, 120, 0.6);
+        margin-top: 5px;
+        width: 50%;
+    }
+} 

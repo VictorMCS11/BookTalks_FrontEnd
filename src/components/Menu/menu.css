@@ -218,28 +218,138 @@
     color: rgb(255, 98, 98);
 }
 
+.menu_open_close{
+    display: none;
+}
+
 @media (max-width: 910px) {
     /* .menu{
         height: 40px;
     } */
     .menu_logo{
-        height: 30px;
-    }
-    .menu_sections{
-        display: none;
+        height: 45px;
+        object-fit: contain;
     }
     .menu_logo > span{
         text-decoration: none;
         color: rgb(255, 225, 130);
-        font-size: 20px;
+        font-size: 22px;
         margin-bottom: 0px;
         font-family: segoe;
     }
-    .menu_container{
+    .menu_container {
+        z-index: 2;
         padding: 0 20px;
+        position: relative; /* Agrega esto */
+    }
+
+    .style_menu_suboption{
+        display: none;
+    }
+    
+    .menu_sections {
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--almost-black);
+        padding: 30px 0 150px 0;
+        justify-content: center;
+        align-items: center;
+        top: 265px;
+        gap: 10px;
+        transform: translateX();
+    }
+    .menu_option{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        height: 40px;
+        width: 80%;
+        color: rgb(213, 206, 163);
+        text-decoration: none;
+        font-size: 25px;
+        position: relative;
+        margin: auto;
+    }
+    .menu_option::after{
+        display: none;
+    }
+    .menu_option:hover{
+        background-color: var(--third-color);
+        color: var(--black);
+    }
+    .talks{
+        width: 100%;
+    }
+    .talks > .menu_suboptions{
+        display: flex;
+        flex-direction: none;
+        align-items: none;
+        border-radius: 0;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+        margin-top: 0;
+        margin-left: 0;
+        position: relative;
+        gap: 10px;
+    }
+    .talks > .menu_suboptions > .menu_suboption{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        height: 40px;
+        width: 80%;
+        color: rgb(213, 206, 163);
+        text-decoration: none;
+        font-size: 25px;
+        position: relative;
+        margin: auto;
     }
     .menu_login{
-        display: none;
+        z-index: 3;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 7px;
+        bottom: -320px;
+        width: 80%;
+        margin: auto;
+        right: 33px;
     } 
+    .button_login{
+        text-align: center;
+        background-color: transparent;
+    } 
+    .button_checkin{
+        display: block;
+        text-align: center;
+    } 
+    .menu_talks{
+        display: none;
+    }
+    .menu_open_close{
+        display: flex;
+        height: 100%;
+    }
+    .menu_open_close:hover{
+        cursor: pointer;
+    }
+    .menu_open_close > img{
+        display: block;
+        margin: auto;
+        height: 70%;
+        width: 70%;
+    }
+    .menu_opened{
+        display: none;
+        margin: auto;
+        height: 80%;
+        width: 80%;
+    }
 } 

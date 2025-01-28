@@ -31,7 +31,14 @@ export function BookReviews({ bookId }){
                             reviewId: review.review_id,
                             score: review.score,
                             content: review.content,
-                            releaseDate: review.release_date.slice(0, 10),
+                            releaseDate: 'Publicado el '
+                                + review.release_date.slice(8,10)
+                                + '/'
+                                + review.release_date.slice(5,7)
+                                + '/'
+                                + review.release_date.slice(0, 4)
+                                + ' a las '
+                                + review.release_date.slice(11,16),
                             bookId: review.book_id,
                             user: {
                                 userId: user.user_id,
@@ -123,11 +130,10 @@ export function BookReviews({ bookId }){
     }
 
     useEffect(() =>{
-        if (authentication.isAuthenticated) {
-            const loggedUser = JSON.parse(window.localStorage.getItem("loggedUser"))
-            setUserId(loggedUser.user_id)
-        }
         loadReviews()
+        if(!authentication.isAuthenticated) return
+        const loggedUser = JSON.parse(window.localStorage.getItem("loggedUser"))
+        setUserId(loggedUser.user_id)
     }, [])
 
     return(

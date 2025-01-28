@@ -18,7 +18,7 @@
 .forumCard{
     background-color: rgba(0, 0, 0, .3);
     width: 100%;
-    max-height: 600px;
+    height: 90px;
     padding: 10px;
     padding-bottom: 0;
     border-radius: 5px;
@@ -32,7 +32,6 @@
 
 .forumInfo{
     min-height: 75px;
-    border-bottom: 2px solid black;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -44,6 +43,10 @@
     color: var(--third-color);
     width: auto;
 }
+.forumBy{
+    color: var(--almost-black);
+    font-size: 15px;
+}
 
 .forumReleaseDate{
     color: var(--third-color);
@@ -53,6 +56,34 @@
     margin: 0;
 }
 
+.postForum {
+    position: absolute;
+    /* right: 30px;
+    bottom: 30px; */
+    width: max-content;
+    padding: 5px;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--third-color);
+    transition: .2s;
+}
+.postForum:hover {
+    cursor: pointer;
+    padding: 6px;
+}
+.postForum > img {
+    display: absolute;
+    width: 50px;
+}
+
+.loadForumList{
+    height: 50px;
+    margin: auto;
+}
 
 .moreButton{
     z-index: 3;
@@ -82,4 +113,17 @@
 }
 .moreButton:hover img{
     margin-top: 2px;
+}
+
+@media (max-width: 910px){
+    .forumTitle{
+        padding-left: 10px;
+        color: var(--third-color);
+        width: auto;
+        font-size: 15px
+    }
+
+    .forumBy{
+        font-size: 12px;
+    }
 }
