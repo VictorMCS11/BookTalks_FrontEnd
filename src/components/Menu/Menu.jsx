@@ -31,6 +31,12 @@ export function Menu() {
         setMenuOpenClose(checked ? menu_opened : menu_closed)
     }
 
+    const changeLinkMenuOpenClose = () =>{
+        setMenuOpenClose(menu_closed)
+        document.querySelector('#menu_open_close_button > input').checked = false
+        // document.querySelector('.menu_open_close_container').className = 'menu_open_close_container'
+    }
+
     const links = [
         {
             name: "Inicio",
@@ -84,6 +90,16 @@ export function Menu() {
                         <img className="menu_closed" src={menuOpenClose} alt="" />
                     </label>
                 </div>
+                <div className={`menu_open_close_container${menuOpenClose === menu_closed ? '_checked' : ''}`}>
+                    <div className="menu_open_close_sections" onClick={changeLinkMenuOpenClose}>
+                        <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
+                        <Link to={links[1].href} className="menu_option">{links[1].name}</Link>
+                        <Link to={links[2].href} className="menu_option">{links[2].name}</Link>
+                        <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
+                        <Link to={links[4].href} className="button_login">{links[4].name}</Link>
+                        <Link to={links[5].href} className="button_checkin">{links[5].name}</Link>
+                    </div>
+                </div>
             </section>
         ):(
             <section className="menu">
@@ -102,13 +118,23 @@ export function Menu() {
                         <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
                     </div>
                     <div className="menu_logged">
-                        <p className="logged_name_user">{userName}</p>
+                        <p className="logged_name_user">{'@'+userName}</p>
                         <button className="button_close_session" onClick={closeSession}>cerrar sesión</button>
                     </div>
-                    {/* <div className="menu_open_close">
-                        <input type="checkbox" />
-                        <img className="menu_opened" src={menu_opened} alt="" />
-                    </div> */}
+                    <label className="menu_open_close" id="menu_open_close_button">
+                        <input type="checkbox" name="menu_open_close_button" onChange={menuOpenCloseChange} hidden />
+                        <img className="menu_closed" src={menuOpenClose} alt="" />
+                    </label>
+                </div>
+                <div className={`menu_open_close_container${menuOpenClose === menu_closed ? '_checked' : ''}`}>
+                    <div className="menu_open_close_sections" onClick={changeLinkMenuOpenClose}>
+                        <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
+                        <Link to={links[1].href} className="menu_option">{links[1].name}</Link>
+                        <Link to={links[2].href} className="menu_option">{links[2].name}</Link>
+                        <Link to={links[3].href} className="menu_option">{links[3].name}</Link>
+                        <p className="logged_name_user">{'@'+userName}</p>
+                        <button className="button_close_session" onClick={closeSession}>cerrar sesión</button>
+                    </div>
                 </div>
             </section>
         )

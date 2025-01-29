@@ -163,7 +163,7 @@ export function BookReviews({ bookId }){
                         reviewList ? reviewList.slice().reverse().map(review =>(
                             <form className='reviewCard' key={review.reviewId} onSubmit={removeReview}>
                                 <div>
-                                    <strong className='reviewUser'>{review.user.name}</strong>
+                                    <strong className='reviewUser'>{'@'+review.user.name}</strong>
                                     <span className='reviewScore'>{review.score}</span>
                                     {/* condicion que comprueba que el usuario loggeado puede borrar     mensajes */
                                     review.user.userId === userId ? (

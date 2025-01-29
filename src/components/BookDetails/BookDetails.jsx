@@ -22,7 +22,7 @@ export default function BookDetails(){
                 title: bookToShow.title,
                 author: bookToShow.author,
                 releaseDate: bookToShow.release_date.slice(0, 10),
-                urlImage: '../' + bookToShow.url_image
+                urlImage: 'http://localhost:3000/' + bookToShow.url_image
             }
             setBook(bookToShow)
         })

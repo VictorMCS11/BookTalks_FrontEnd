@@ -1,6 +1,65 @@
 a{
     text-decoration: none;
 }
+.book_search{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: -30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.search_engine{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    padding: 0 10px 0 10px;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    background-color: rgb(245, 245, 245);
+}
+.button_search{
+    padding: 7px;
+    color: var(--third-color);
+    font-size: 15px;
+    background-color: var(--almost-black);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin: 0 1 0 10px;
+    transition: .2s; 
+}
+.button_search:hover{
+    cursor: pointer;
+    background-color: var(--fourth-color);
+    color: var(--almost-black);
+    /* -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.75); */
+}
+.delete_search{
+    height: 30px;
+    width: 40px;
+    /* padding: 0 5px; */
+    color: var(--almost-black);
+    right: 0;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid rgb(0, 0, 0);
+    border-left: 0;
+    border-radius: 0 5px 5px 0px;
+}
+.delete_search:hover{
+    cursor: pointer;
+}
+.delete_search > img{
+    height: 100%;
+    width: 100%;
+}
+
 .bookContainer{
     position: relative;
     z-index: 0;
@@ -28,7 +87,7 @@ a{
     justify-content: space-between;
     align-items: left;
     width: 170px;
-    min-height: 340px;
+    height: 400px;
     background-color: rgba(0, 0, 0, .3);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -100,7 +159,7 @@ a{
         justify-content: space-between;
         align-items: left;
         width: 100px;
-        min-height: 240px;
+        height: 250px;
         background-color: rgba(0, 0, 0, .3);
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
