@@ -68,7 +68,7 @@ export function Menu() {
         !authentication.isAuthenticated ? (
             <section className="menu">
                 <div className="menu_container">
-                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalk</span></Link>
+                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalks</span></Link>
                     <div className="menu_sections">
                         <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
                         <div className="talks">
@@ -104,7 +104,7 @@ export function Menu() {
         ):(
             <section className="menu">
                 <div className="menu_container">
-                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalk</span></Link>
+                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalks</span></Link>
                     <div className="menu_sections">
                         <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
                         <div className="talks">
