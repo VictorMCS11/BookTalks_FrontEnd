@@ -1,6 +1,7 @@
 const USER_BASE_REST_API_CREATE_USER = "http://localhost:3000/api/users/addUser"
-const USER_BASE_REST_API_CREATE_NAME_PASSWORD = "http://localhost:3000/api/users/userByNameAndPassword"
+const USER_BASE_REST_API_CREATE_NAME_PASSWORD = "http://localhost:3000/api/login"
 const USER_BASE_REST_API_ID = "http://localhost:3000/api/users/"
+const COLUMN = 'name'
 
 class UserService{
     async createUser({ user }){
@@ -13,6 +14,10 @@ class UserService{
     }
 
     async getUser({ user }){
+        user = {
+            ...user,
+            column: COLUMN
+        }
         const response = await fetch(USER_BASE_REST_API_CREATE_NAME_PASSWORD, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

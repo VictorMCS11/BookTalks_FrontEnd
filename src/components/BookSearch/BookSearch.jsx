@@ -24,22 +24,29 @@ export function BookSearch(){
     };
 
     const deleteSearch = () =>{
-        if(search === '') return
         setSearch('')
         setBookList([])
         setNotFound('')
+        // console.log(notFound)
     }
 
     const handleSearch = (e) =>{
         e.preventDefault()
-        const currentSearch = search.replaceAll(' ', '%20')
-        if(currentSearch.length <= 5) return
+        // console.log(search)
+        let currentSearch = search.replaceAll(' ', '%20')
+        if(currentSearch === '') return
+        if(currentSearch.length < 4 || currentSearch === undefined){
+            setBookList([])
+            setNotFound('no_')
+            return
+        }
         BookService.getBook(currentSearch).then(response =>{
             if(response.body[0] === '' || response.body[0] === undefined){
-                setNotFound('no_')
                 setBookList([])
+                setNotFound('')
             }else{
                 setBookList(showBooks(response.body))
+                setNotFound('')
             }
         }).catch(err =>{
             console.log(err)

@@ -27,11 +27,13 @@ export function SignUpForm(){
     const handleSubmit = (e) =>{
         e.preventDefault()
 
+        const userId = 0
         const name = userName
-        const password = userPassword
         const email = userEmail
+        const password = userPassword
+        const active = 1
 
-        const user = { name, password, email }
+        const user = { userId, name, email, password, active }
 
         if(user.name !== "" && user.password !== "" && user.email !== ""){
             UserService.createUser({ user }).then(response =>{
