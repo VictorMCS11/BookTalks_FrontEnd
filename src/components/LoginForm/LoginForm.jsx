@@ -16,8 +16,9 @@ export function LoginForm(){
 
         const user = Object.fromEntries(new window.FormData(e.target))
         UserService.getUser({ user }).then((response) =>{
-            if(response.body[0].name === user.name && response.body[0].password === user.password){
-                window.localStorage.setItem('loggedUser', JSON.stringify(response.body[0]))
+            // console.log(response)
+            if(response.body !== ''){
+                window.localStorage.setItem('loggedUser', JSON.stringify(response.body))
                 window.location.reload(true)
             }else{
                 console.log(response)

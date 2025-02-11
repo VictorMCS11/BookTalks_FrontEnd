@@ -8,8 +8,11 @@ import  ContactPage  from './pages/ContactPage.jsx'
 import  ForumPage  from './pages/ForumPage.jsx'
 import  ReviewsPage  from './pages/ReviewsPage.jsx'
 import Layout from './components/Layout.jsx'
+import useScrollToTop from './hooks/useScrollToTop.jsx'
 
 function App() {
+
+  useScrollToTop()
 
   return (
     <>

@@ -14,12 +14,10 @@ export function Menu() {
     const [menuOpenClose, setMenuOpenClose] = useState(menu_closed)
 
     useEffect(() =>{
-        const loggedUserJSON = window.localStorage.getItem('loggedUser')
-        if(loggedUserJSON){
-            const name = JSON.parse(loggedUserJSON)
-            setUserName(name.name)
+        if(authentication.isAuthenticated){
+            setUserName(authentication.userLogged.loggedName)
         }
-    }, [])
+    }, [authentication.isAuthenticated])
 
     const closeSession = () =>{
         window.localStorage.removeItem('loggedUser')
@@ -34,7 +32,6 @@ export function Menu() {
     const changeLinkMenuOpenClose = () =>{
         setMenuOpenClose(menu_closed)
         document.querySelector('#menu_open_close_button > input').checked = false
-        // document.querySelector('.menu_open_close_container').className = 'menu_open_close_container'
     }
 
     const links = [

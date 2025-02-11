@@ -44,7 +44,7 @@
     width: auto;
 }
 .forumBy{
-    color: var(--almost-black);
+    color: rgb(115, 105, 90);
     font-size: 15px;
 }
 
@@ -54,6 +54,7 @@
     width: auto;
     padding: 0;
     margin: 0;
+    font-size: 11px;
 }
 
 .postForum {
@@ -125,5 +126,9 @@
 
     .forumBy{
         font-size: 12px;
+    }
+
+    .forumCard{
+        height: 100px;
     }
 }

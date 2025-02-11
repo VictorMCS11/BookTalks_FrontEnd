@@ -14,16 +14,42 @@
     border-radius: 10px;
     gap: 10px;
 }
+.closeForum {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 90, 90);
+    border: none;
+    position: absolute;
+    top: -25px;
+    left: 50%; /* Mueve el punto de inicio al centro */
+    transform: translateX(-50%); /* Corrige el desplazamiento */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.closeForum > img{
+    height: 60%;
+}
+.closeForum:hover{
+    cursor: pointer;
+    background-color: rgb(255, 110, 110);
+}
 
 .forumHead{
+    height: max-content;
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+}
+.forumReleaseDate{
+    height: 100%;
 }
 
 .moreOpened{
     overflow: auto;
     border-radius: 5px;
-    /* margin-bottom: 30px; */
     height: 100%;
     background-color: none;
     transition: .2s;
@@ -124,10 +150,11 @@
 }
 
 .messageSubject{
-
+    color: rgb(115, 105, 90);
 }
 .messageText{
     overflow-wrap: break-word; 
+    white-space: pre-wrap;
     font-size: 12px;
 }
 .messageDate{
@@ -136,7 +163,7 @@
     padding: 0;
     color: rgba(255, 230, 120, 0.6);
     margin-top: 5px;
-    width: 50%;
+    width: 75%;
 }
 
 .messageDeleteButton{
@@ -175,16 +202,16 @@
         border-radius: 5px;
         z-index: 1;
     }
-    .messageDeleteButton:hover{
-        cursor: none;
-        background-color: none;
-    }
+    /* .messageDeleteButton:hover{
+        cursor: default;
+        background-color: rgb(85, 25, 25);
+    } */
     .messageDate{
         margin: 0;
         font-size: 10px;
         padding: 0;
         color: rgba(255, 230, 120, 0.6);
         margin-top: 5px;
-        width: 50%;
+        width: 75%;
     }
 } 

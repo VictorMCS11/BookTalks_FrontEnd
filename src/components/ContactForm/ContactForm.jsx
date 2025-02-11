@@ -12,10 +12,10 @@ export function ContactForm(){
     const [loading, setLoading] = useState(false)
     const refForm = useRef()
 
-    const SERVICE_ID = 'service_zuthhgg'
-    const TEMPLATE_ID = 'template_3hxz1ac'
+    const SERVICE_ID = 'service_6pu2an7'
+    const TEMPLATE_ID = 'template_05xwyvc'
     const API_KEY = 'ig5BlAG_BjtsZKVrS'
-    const username = authentication ? JSON.parse(window.localStorage.getItem('loggedUser')).name : ''
+    // const username = authentication ? JSON.parse(window.localStorage.getItem('loggedUser')).name : ''
 
     const handleSubmit = (e) =>{
         //Validación del formulario
@@ -37,7 +37,7 @@ export function ContactForm(){
         }else{
             emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, refForm.current, API_KEY)
             .then(response =>{
-                console.log(response)
+                // console.log(response)
                 setPermissionMessage('¡Mensaje enviado con éxito! 😎')
                 setPermission('sent')
             })
@@ -73,7 +73,7 @@ export function ContactForm(){
                 </div>
             </div>
 
-            <input style={{display: 'none'}} readOnly type="text" name='username' value={username} />
+            {/* <input style={{display: 'none'}} readOnly type="text" name='username' value={username} /> */}
 
             <div className="input input_mensaje">
                 <label className="mensaje">Mensaje</label>

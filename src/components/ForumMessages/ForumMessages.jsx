@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import MessageService from '../../services/MessageService.js'
 import ForumService from "../../services/ForumService.js"
 import UserService from '../../services/UserService.js'
@@ -6,55 +7,58 @@ import { useAuth } from '../Authentication/AuthProvider.jsx'
 import loadImage from '../../assets/img/loading.svg'
 import { useParams } from "react-router-dom"
 import './forumMessages.css'
+import xImage from '../../assets/img/x.svg'
 
 export function ForumMessages(){
+
+    const authentication = useAuth()
+    const userId = authentication.isAuthenticated ? authentication.userLogged.loggedId : undefined
 
     const forumId = useParams()
     const [forum, setForum] = useState({})
     const [forumUser, setForumUser] = useState({})
 
     const [messageList, setMessageList] = useState([])
-    const [userId, setUserId] = useState() 
 
     const [isLoading, setIsLoading] = useState(false)
     const sendingMessageClass =  isLoading ? '_loading' : ''
 
-    const authentication = useAuth()
-
     const loadMessages = () =>{
         setIsLoading(true)
-        ForumService.getForum(forumId['*']).then((response) => {
-            if (!response.body[0]) return // Exit if no forum data is found
-            let forumToShow = response.body[0]; // Get the forum data
-            // Fetch user details
-            forumToShow = {
-                forumId: forumToShow.forum_id,
-                title: forumToShow.title,
-                releaseDate: 'Publicado el '
-                    + forumToShow.release_date.slice(8, 10)
-                    + ' del '
-                    + forumToShow.release_date.slice(5, 7)
-                    + ' de '
-                    + forumToShow.release_date.slice(0, 4)
-                    + ' a las '
-                    + forumToShow.release_date.slice(11, 16),
-                userId: forumToShow.user_id
-            }
+        ForumService.getForum(forumId['*'])
+        .then((response) => {
+            if (!response.body?.[0]) return; // Exit if no forum data is found
+    
+            const forumData = response.body[0]; // Get the forum data
+            const forumToShow = {
+                forumId: forumData.forum_id,
+                title: forumData.title,
+                releaseDate: `Publicado el ${forumData.release_date.slice(8, 10)} del ${forumData.release_date.slice(5, 7)} de ${forumData.release_date.slice(0, 4)} a las ${forumData.release_date.slice(11, 16)}`,
+                userId: forumData.user_id
+            };
+    
             setForum(forumToShow);
-            //Cargar el usuario propietario del Forum
-            UserService.getUserById(forumId['*']).then(async response =>{
-                const forumUser = response.body[0];
-                const forumUserToShow = {
-                    userId: forumUser.user_id,
-                    name: forumUser.name,
-                    email: forumUser.email,
-                }
-                setForumUser(forumUserToShow)
-            })
-
-        }).catch((error) => {
+            // Load the forum owner details
+            UserService.getUserById(forumToShow.userId)
+                .then((response) => {
+                    if (!response.body?.[0]) return; // Exit if no user data is found
+    
+                    const forumUser = response.body[0];
+                    const forumUserToShow = {
+                        userId: forumUser.user_id,
+                        name: forumUser.name,
+                        email: forumUser.email
+                    };
+    
+                    setForumUser(forumUserToShow);
+                })
+                .catch((error) => {
+                    console.error("Error fetching forum user details:", error);
+                });
+        })
+        .catch((error) => {
             console.error("Error fetching forum details:", error);
-        });
+        });    
 
         MessageService.getMessages(forumId['*']).then(async response =>{
             // setMessageList(response.body)
@@ -135,20 +139,18 @@ export function ForumMessages(){
 
     useEffect(() =>{
         loadMessages()
-        if(!authentication.isAuthenticated) return 
-        const loggedUser = JSON.parse(window.localStorage.getItem("loggedUser"))
-        setUserId(loggedUser.user_id)
     }, [])
 
     return (
         <div className='forumMessagesContainer'>
+            <Link to='/forum' className='closeForum'><img src={xImage} alt="" /></Link>
             <div className="forumHead">
                 <h3 className="forumTitle">{forum.title} <br /> <span className="forumBy">{'@'+forumUser.name}</span></h3>
                 <p className="forumReleaseDate">{forum.releaseDate}</p>
             </div>
             <div className='moreOpened'>
                 <form className={'addMessage'} onSubmit={handleSubmit}>
-                    <textarea className="messageAddText" name="content"  rows="10" cols="40" placeholder="Participa en el foro enviando un mensaje ✍️..."></textarea>
+                    <textarea className="messageAddText" name="content"  rows="40" cols="40" placeholder="Participa en el foro enviando un mensaje ✍️..."></textarea>
                     <button className="addMessageButton">Añadir mensaje</button>
                 </form>
                 <div className='messageCardsSec'>

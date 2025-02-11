@@ -11,7 +11,7 @@ export function BookSearch(){
     const [defaultBookList, setDefaultBookList] = useState([])
     const [loadingBooks, setLoadingBooks] = useState(true)
     const [search, setSearch] = useState('')
-    const [notFound, setNotFound] = useState('')
+    const [notFound, setNotFound] = useState({msj: "¡Busca tus libros favoritos! 😎", class: 'no_'})
 
     const showBooks = (books) => {
         return books?.map(book => ({
@@ -26,27 +26,27 @@ export function BookSearch(){
     const deleteSearch = () =>{
         setSearch('')
         setBookList([])
-        setNotFound('')
-        // console.log(notFound)
+        setNotFound({msj: '¡Busca tus libros favoritos! 😎', class:'no_'})
+
     }
 
     const handleSearch = (e) =>{
         e.preventDefault()
-        // console.log(search)
-        let currentSearch = search.replaceAll(' ', '%20')
+        // let currentSearch = search.replaceAll(' ', '%20')
+        let currentSearch = search
         if(currentSearch === '') return
         if(currentSearch.length < 4 || currentSearch === undefined){
             setBookList([])
-            setNotFound('no_')
+            setNotFound({msj: 'No se encontraron libros 💀', class:'no_'})
             return
         }
-        BookService.getBook(currentSearch).then(response =>{
-            if(response.body[0] === '' || response.body[0] === undefined){
+        BookService.getBookSearch(currentSearch).then(response =>{
+            if(response && Array.isArray(response.body) && !response.body.some(item => typeof item === "object")){
                 setBookList([])
-                setNotFound('')
+                setNotFound({msj: 'No se encontraron libros 💀', class:'no_'})
             }else{
                 setBookList(showBooks(response.body))
-                setNotFound('')
+                setNotFound({msj: '', class:''})
             }
         }).catch(err =>{
             console.log(err)
@@ -63,7 +63,7 @@ export function BookSearch(){
       }, []);
 
     return (
-        <div className={`${notFound}bookContainer`}>
+        <div className={`${notFound.class}bookContainer`}>
             <form className='book_search' onSubmit={handleSearch}>
                 <input className='button_search' type="submit" value="Buscar" />
                 <input type="text" className='search_engine' placeholder='El principito, El arte de la guerra ...' value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -75,7 +75,7 @@ export function BookSearch(){
                 ):(
                     bookList.length == 0 ?(
                         <>
-                            <h1 className={`${notFound}books_founded`}>No se encontraron libros</h1>
+                            <h1 className={`${notFound.class}books_founded`}>{notFound.msj}</h1>
                             {
                                 defaultBookList.map(book =>(
                                     <Link to={`/reviews/${book.title}`} className='bookCard' key={book.bookId}>
@@ -90,16 +90,21 @@ export function BookSearch(){
                             }
                         </>
                     ):(
-                        bookList.map(book =>(
-                            <Link to={`/reviews/${book.title}`} className='bookCard' key={book.bookId}>
-                                <img className='bookCover' src={'http://localhost:3000/'+book.urlImage} alt="" />
-                                <div className='title_author'>
-                                    <h3>{book.title}</h3>
-                                    <strong>{book.author}</strong>
-                                </div>
-                                <p>{book.releaseDate}</p>
-                            </Link>
-                        ))
+                        <>
+                            <h1 className={`${notFound.class}books_founded`}>{notFound.msj}</h1>
+                            {
+                                bookList.map(book =>(
+                                    <Link to={`/reviews/${book.title}`} className='bookCard' key={book.bookId}>
+                                        <img className='bookCover' src={'http://localhost:3000/'+book.urlImage} alt="" />
+                                        <div className='title_author'>
+                                            <h3>{book.title}</h3>
+                                            <strong>{book.author}</strong>
+                                        </div>
+                                        <p>{book.releaseDate}</p>
+                                    </Link>
+                                ))
+                            }
+                        </>
                     )
                 )
             }

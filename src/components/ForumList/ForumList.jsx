@@ -67,7 +67,7 @@ export function ForumList(){
                     forumList?.map(forum =>(
                         <div className='forumCard' key={forum.forumId}>
                             <div className='forumInfo'>
-                                <h3 className='forumTitle'>{forum.title}<br /><span className="forumBy">{forum.user.name}</span></h3>
+                                <h3 className='forumTitle'>{forum.title}<br /><span className="forumBy">@{forum.user.name}</span></h3>
                                 <p className='forumReleaseDate'>{forum.releaseDate}</p>
                             </div>
                             <Link to={`/forum/${forum.forumId}`} className='moreButton'>

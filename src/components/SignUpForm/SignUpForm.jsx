@@ -34,17 +34,25 @@ export function SignUpForm(){
         const active = 1
 
         const user = { userId, name, email, password, active }
-
         if(user.name !== "" && user.password !== "" && user.email !== ""){
-            UserService.createUser({ user }).then(response =>{
-                if(response.ok){
-                    setRegistered("registered")
+            UserService.getUserByName({ user }).then(nameResponse =>{
+                if(nameResponse && Array.isArray(nameResponse.body) && !nameResponse.body.some(item => typeof item === "object")){
+                    UserService.createUser({ user }).then(response =>{
+                        if(response){
+                            // console.log(response)
+                            setRegistered("registered")
+                        }else{
+                            alert("Error")
+                        }
+                    }).catch(error =>{
+                        console.log(error)
+                        alert("El usuario no pudo ser creado")
+                    })
                 }else{
-                    alert("Error")
+                    alert("Debes escribir un nombre de usuario distinto")
                 }
             }).catch(error =>{
                 console.log(error)
-                alert("El usuario no pudo ser creado")
             })
         }else{
             alert("Todos los campos han de ser rellenados")

@@ -4,6 +4,7 @@ import xImage from '../../assets/img/x.svg'
 import { useState, useEffect } from 'react'
 import loadImage from '../../assets/img/loading.svg'
 import BookService from '../../services/BookService.js'
+import ReviewService from '../../services/ReviewService.js'
 import { Link } from 'react-router-dom'
 import './bookDetails.css'
 
@@ -15,24 +16,37 @@ export default function BookDetails(){
   
     useEffect(() => {
         setLoadingBooks(true);
-        BookService.getBook(title['*']).then((response) => {
-            let bookToShow = response.body[0]
-            bookToShow = {
-                bookId: bookToShow.book_id,
-                title: bookToShow.title,
-                author: bookToShow.author,
-                releaseDate: bookToShow.release_date.slice(0, 10),
-                urlImage: 'http://localhost:3000/' + bookToShow.url_image
-            }
-            setBook(bookToShow)
-        })
-        .catch((error) => {
-          console.error('Error fetching book:', error);
-        })
-        .finally(() => {
-            setLoadingBooks(!loadingBooks);
+        BookService.getBook(title['*']).then((bookResponse) => {
+            if (!bookResponse.body) return;
+    
+            const bookData = bookResponse.body[0]; // Asignamos la data correctamente
+                
+            return ReviewService.getBookReviews({ bookId: bookData.book_id }).then((reviewsResponse) => {
+                let totalScore = 0;
+                let scoreText = "";
+    
+                if (reviewsResponse.body?.length > 0) {
+                    totalScore = reviewsResponse.body.reduce((acc, review) => acc + review.score, 0);
+                    scoreText = (totalScore / reviewsResponse.body.length).toFixed(1); // Calculamos el promedio
+                }
+    
+                const bookToShow = {
+                    bookId: bookData.book_id,
+                    title: bookData.title,
+                    author: bookData.author,
+                    releaseDate: bookData.release_date.slice(0, 10),
+                    urlImage: `http://localhost:3000/${bookData.url_image}`,
+                    score: scoreText > 0 ? 'Nota Media: ' + scoreText.replace('.', ',') + ' / 5 \n ' + reviewsResponse.body.length + ' puntuaciones' : 'No tiene puntuaciones',
+                };
+                setBook(bookToShow);
+            });
+        }).catch((error) => {
+            console.error("Error fetching book:", error);
+        }).finally(() => {
+            setLoadingBooks(false);
         });
     }, []);
+    
 
     return(
         loadingBooks?(
@@ -48,6 +62,7 @@ export default function BookDetails(){
                         <div className='title_author'>
                             <h3>{book.title}</h3>
                             <strong>{book.author}</strong>
+                            <span className="score_book">{`${book.score}`}</span>
                         </div>
                         <p><b>{book.releaseDate}</b></p>
                     </div>
