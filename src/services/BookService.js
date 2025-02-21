@@ -1,4 +1,4 @@
-const BOOK_BASE_REST_API_GET_BOOKS = "http://localhost:3000/api/books"
+const BOOK_BASE_REST_API_GET_BOOKS = "https://booktalksapi-production.up.railway.app/api/books"
 const BOOK_BASE_REST_API_GET_BOOK = "http://localhost:3000/api/books/book"
 const BOOK_BASE_REST_API_GET_BOOK_SEARCH = "http://localhost:3000/api/books/bookSearch"
 const COLUMN = 'title'

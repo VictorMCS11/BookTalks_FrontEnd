@@ -35,7 +35,7 @@ export default function BookDetails(){
                     title: bookData.title,
                     author: bookData.author,
                     releaseDate: bookData.release_date.slice(0, 10),
-                    urlImage: `http://localhost:3000/${bookData.url_image}`,
+                    urlImage: `http://booktalksapi-production.up.railway.app/${bookData.url_image}`,
                     score: scoreText > 0 ? 'Nota Media: ' + scoreText.replace('.', ',') + ' / 5 \n ' + reviewsResponse.body.length + ' puntuaciones' : 'No tiene puntuaciones',
                 };
                 setBook(bookToShow);

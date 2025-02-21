@@ -7,7 +7,7 @@ export function Footer(){
             <div className="footer_container">
                 <img src={logo} alt="" />
                 <hr />
-                <p>VictorMCS11@gmail.com<br></br>ethan.h.botia@gmail.com</p>
+                <p>VictorMCS11@gmail.com</p>
             </div>
         </div>
     )

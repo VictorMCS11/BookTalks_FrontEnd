@@ -79,7 +79,7 @@ export function BookSearch(){
                             {
                                 defaultBookList.map(book =>(
                                     <Link to={`/reviews/${book.title}`} className='bookCard' key={book.bookId}>
-                                        <img className='bookCover' src={'http://localhost:3000/'+book.urlImage} alt="" />
+                                        <img className='bookCover' src={'http://booktalksapi-production.up.railway.app/'+book.urlImage} alt="" />
                                         <div className='title_author'>
                                             <h3>{book.title}</h3>
                                             <strong>{book.author}</strong>
@@ -95,7 +95,7 @@ export function BookSearch(){
                             {
                                 bookList.map(book =>(
                                     <Link to={`/reviews/${book.title}`} className='bookCard' key={book.bookId}>
-                                        <img className='bookCover' src={'http://localhost:3000/'+book.urlImage} alt="" />
+                                        <img className='bookCover' src={'http://booktalksapi-production.up.railway.app/'+book.urlImage} alt="" />
                                         <div className='title_author'>
                                             <h3>{book.title}</h3>
                                             <strong>{book.author}</strong>
