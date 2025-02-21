@@ -221,12 +221,10 @@ export function BookReviews({ bookId }){
             <div className='cardsReviews'>
                 {   
                     reviewIsLoading ?(
-                        <form className='reviewCard' onSubmit={handleSubmit}>
-                            <img src={loadImage} alt="" />
-                        </form>
+                        <img src={loadImage} alt="" />
                     ):(
                         //Mapeamos las reviews filtradas por la ID del libro al que corresponden
-                        reviewList ? reviewList.slice().reverse().map(review =>(
+                        reviewList.length > 0 ? reviewList.slice().reverse().map(review =>(
                             <form className='reviewCard' key={review.reviewId} onSubmit={handleReviewAction}>
                                 <div>
                                     <strong className='reviewUser'>{'@'+review.user.name}</strong>
@@ -260,11 +258,9 @@ export function BookReviews({ bookId }){
                                 <input style={{ display:'none' }} type="number" value={review.reviewId} name='reviewId' readOnly />
                                 <input style={{ display:'none' }} type="number" value={review.liked ? 1 : 0} name='reviewLiked' readOnly />
                             </form>
-                        )) : (
-                            <form className='reviewCard' onSubmit={handleSubmit}>
-                                <p>No hay reseñas</p>
-                            </form>
-                        )
+                        )):
+                            <p>No hay reseñas</p>
+                        
                     )
                 }
             </div>

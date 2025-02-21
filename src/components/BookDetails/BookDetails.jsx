@@ -49,26 +49,26 @@ export default function BookDetails(){
     
 
     return(
-        loadingBooks?(
-            <div className='bookContainer'>
-                <img src={loadImage} alt="" />
-            </div>
-        ):(
-            <div className='bookDetailContainer'>
-                <div className='bookReviews'>
-                    <Link to='/reviews' className='closeBookReview'><img src={xImage} alt="" /></Link>
-                    <div className='bookDataCard'>
-                        <img className='bookCover' src={book.urlImage} alt="" />
-                        <div className='title_author'>
-                            <h3>{book.title}</h3>
-                            <strong>{book.author}</strong>
-                            <span className="score_book">{`${book.score}`}</span>
+        <div className='bookDetailContainer'>
+            {
+                loadingBooks?(
+                    <img src={loadImage} alt="" />
+                ):(
+                    <div className='bookReviews'>
+                        <Link to='/reviews' className='closeBookReview'><img src={xImage} alt="" /></Link>
+                        <div className='bookDataCard'>
+                            <img className='bookCover' src={book.urlImage} alt="" />
+                            <div className='title_author'>
+                                <h3>{book.title}</h3>
+                                <strong>{book.author}</strong>
+                                <span className="score_book">{`${book.score}`}</span>
+                            </div>
+                            <p><b>{book.releaseDate}</b></p>
                         </div>
-                        <p><b>{book.releaseDate}</b></p>
+                        <BookReviews bookId={book.bookId}></BookReviews>
                     </div>
-                    <BookReviews bookId={book.bookId}></BookReviews>
-                </div>
-            </div>
-        )
+                )
+            }
+        </div>
     )
 } 

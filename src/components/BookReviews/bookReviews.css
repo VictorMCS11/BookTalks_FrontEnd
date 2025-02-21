@@ -179,6 +179,21 @@ h4{
     width: 100%;
     height: max-content;
 }
+.cardsReviews > img {
+    height: 100px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    margin: auto;
+}
+.cardsReviews > p{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: brown;
+}
 
 .reviewCard{
     position: relative;
