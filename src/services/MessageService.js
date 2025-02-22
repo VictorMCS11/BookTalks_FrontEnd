@@ -1,6 +1,6 @@
-const MESSAGE_BASE_REST_API_GET_MESSAGES = "http://localhost:3000/api/forumMessages"
-const MESSAGE_BASE_REST_API_CREATE_MESSAGE = "http://localhost:3000/api/forumMessages/addForumMessage"
-const MESSAGE_BASE_REST_API_DELETE_MESSAGE = "http://localhost:3000/api/forumMessages/removeForumMessage/"
+const MESSAGE_BASE_REST_API_GET_MESSAGES = "https://booktalksapi-production.up.railway.app/api/forumMessages"
+const MESSAGE_BASE_REST_API_CREATE_MESSAGE = "https://booktalksapi-production.up.railway.app/api/forumMessages/addForumMessage"
+const MESSAGE_BASE_REST_API_DELETE_MESSAGE = "https://booktalksapi-production.up.railway.app/api/forumMessages/removeForumMessage/"
 const COLUMN = "forum"
 
 class MessageService{

@@ -1,6 +1,6 @@
-const REVIEW_BASE_REST_API_GET_REVIEWS = "http://localhost:3000/api/reviews/"
-const REVIEW_BASE_REST_API_CREATE_REVIEW = "http://localhost:3000/api/reviews/addReview"
-const REVIEW_BASE_REST_API_DELETE_REVIEW = "http://localhost:3000/api/reviews/removeReview/"
+const REVIEW_BASE_REST_API_GET_REVIEWS = "https://booktalksapi-production.up.railway.app/api/reviews/"
+const REVIEW_BASE_REST_API_CREATE_REVIEW = "https://booktalksapi-production.up.railway.app/api/reviews/addReview"
+const REVIEW_BASE_REST_API_DELETE_REVIEW = "https://booktalksapi-production.up.railway.app/api/reviews/removeReview/"
 
 const COLUMN = 'book'
 

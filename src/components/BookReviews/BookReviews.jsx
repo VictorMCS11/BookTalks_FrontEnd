@@ -16,9 +16,10 @@ export function BookReviews({ bookId }){
 
     const [warnig, setWarning] = useState('')
     const [warningType, setWarningType] = useState('')
-    const [reviewIsLoading, setReviewIsLoading] = useState(false)
+    const [reviewIsLoading, setReviewIsLoading] = useState()
 
     const [reviewList, setReviewList] = useState([])
+    const [noReviewMessage, setNoReviewMessage] = useState('')
 
     const loadLikes = async (reviews) => {
         if (reviews.length === 0) return;
@@ -60,7 +61,11 @@ export function BookReviews({ bookId }){
     const loadReviews = () =>{
         setReviewIsLoading(true)
         ReviewService.getBookReviews({ bookId }).then(async (response) => {
-            if (!response.body) return;
+            if(response && Array.isArray(response.body) && !response.body.some(item => typeof item === "object")){
+                setNoReviewMessage('no_')
+                return
+            }
+            setNoReviewMessage('')
             // Mapear las reseñas y esperar las promesas usando Promise.all
             const reviewListToShow = await Promise.all(
                 response.body.map(async (review) => {
@@ -224,43 +229,46 @@ export function BookReviews({ bookId }){
                         <img src={loadImage} alt="" />
                     ):(
                         //Mapeamos las reviews filtradas por la ID del libro al que corresponden
-                        reviewList.length > 0 ? reviewList.slice().reverse().map(review =>(
-                            <form className='reviewCard' key={review.reviewId} onSubmit={handleReviewAction}>
-                                <div>
-                                    <strong className='reviewUser'>{'@'+review.user.name}</strong>
-                                    <span className='reviewScore'>{review.score}</span>
-                                    {/* condicion que comprueba que el usuario loggeado puede borrar     mensajes */
-                                    review.user.userId === userId ? (
-                                        <>
-                                            <button type='submit' className='reviewDeleteButton' value='delete'>
-                                                <img src={trashImage} alt="" />
-                                            </button>
-                                            <div className='reviewLike'>
-                                                <div className='reviewLikeButton'>
-                                                    <img src={like_block} alt="" />
-                                                </div>
-                                                <span>{review.likes}</span>
-                                            </div>
-                                        </>
-                                    ):(
-                                        <div className='reviewLike'>
-                                            <button type='submit' className='reviewLikeButton' value='like'>
-                                                <img className={review.liked ? 'liked_available_true' : 'like_available'} src={like} alt="" />
-                                                <img className='like_block' src={like_block} alt="" />
-                                            </button>
-                                            <span>{review.likes}</span>
+                        <>
+                            <p className={`${noReviewMessage}reviewMessage`}>No hay reviews</p>
+                            {
+                                reviewList?.slice().reverse().map(review =>(
+                                    <form className='reviewCard' key={review.reviewId} onSubmit={handleReviewAction}>
+                                        <div>
+                                            <strong className='reviewUser'>{'@'+review.user.name}</strong>
+                                            <span className='reviewScore'>{review.score}</span>
+                                            {/* condicion que comprueba que el usuario loggeado puede borrar     mensajes */
+                                                review.user.userId === userId ? (
+                                                    <>
+                                                        <button type='submit' className='reviewDeleteButton' value='delete'>
+                                                            <img src={trashImage} alt="" />
+                                                        </button>
+                                                        <div className='reviewLike'>
+                                                            <div className='reviewLikeButton'>
+                                                                <img src={like_block} alt="" />
+                                                            </div>
+                                                            <span>{review.likes}</span>
+                                                        </div>
+                                                    </>
+                                                ):(
+                                                    <div className='reviewLike'>
+                                                        <button type='submit' className='reviewLikeButton' value='like'>
+                                                            <img className={review.liked ? 'liked_available_true' : 'like_available'} src={like} alt="" />
+                                                            <img className='like_block' src={like_block} alt="" />
+                                                        </button>
+                                                        <span>{review.likes}</span>
+                                                    </div>
+                                                )
+                                            }
                                         </div>
-                                    )
-                                }
-                                </div>
-                                <span className='reviewContent'>{review.content}</span>
-                                <p className='reviewDate'>{review.releaseDate}</p>
-                                <input style={{ display:'none' }} type="number" value={review.reviewId} name='reviewId' readOnly />
-                                <input style={{ display:'none' }} type="number" value={review.liked ? 1 : 0} name='reviewLiked' readOnly />
-                            </form>
-                        )):
-                            <p>No hay reseñas</p>
-                        
+                                        <span className='reviewContent'>{review.content}</span>
+                                        <p className='reviewDate'>{review.releaseDate}</p>
+                                        <input style={{ display:'none' }} type="number" value={review.reviewId} name='reviewId' readOnly />
+                                        <input style={{ display:'none' }} type="number" value={review.liked ? 1 : 0} name='reviewLiked' readOnly />
+                                    </form>
+                                ))
+                            }
+                        </>
                     )
                 }
             </div>

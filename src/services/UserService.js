@@ -1,7 +1,7 @@
-const USER_BASE_REST_API_CREATE_USER = "http://localhost:3000/api/users/addUser"
-const USER_BASE_REST_API_CREATE_NAME_PASSWORD = "http://localhost:3000/api/login"
-const USER_BASE_REST_API_ID = "http://localhost:3000/api/users/"
-const USER_BASE_REST_API_NAME = "http://localhost:3000/api/users"
+const USER_BASE_REST_API_CREATE_USER = "https://booktalksapi-production.up.railway.app/api/users/addUser"
+const USER_BASE_REST_API_CREATE_NAME_PASSWORD = "https://booktalksapi-production.up.railway.app/api/login"
+const USER_BASE_REST_API_ID = "https://booktalksapi-production.up.railway.app/api/users/"
+const USER_BASE_REST_API_NAME = "https://booktalksapi-production.up.railway.app/api/users"
 const COLUMN = 'name'
 
 class UserService{

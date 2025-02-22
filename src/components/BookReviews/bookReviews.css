@@ -246,6 +246,13 @@ h4{
     padding: 0px 7px;
 }
 
+.reviewMessage{
+    display: none;
+}
+.no_reviewMessage{
+    display: block;
+}
+
 @media (max-width: 910px){
     .reviewContent{
         max-width: 100%;

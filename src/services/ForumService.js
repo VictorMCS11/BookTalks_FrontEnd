@@ -1,5 +1,5 @@
-const FORUM_BASE_REST_API_GET_ALL_FORUMS = "http://localhost:3000/api/forums"
-const FORUM_BASE_REST_API_GET_FORUM = "http://localhost:3000/api/forums/"
+const FORUM_BASE_REST_API_GET_ALL_FORUMS = "https://booktalksapi-production.up.railway.app/api/forums"
+const FORUM_BASE_REST_API_GET_FORUM = "https://booktalksapi-production.up.railway.app/api/forums/"
 
 class ForumService{
 

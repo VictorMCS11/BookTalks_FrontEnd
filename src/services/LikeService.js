@@ -1,7 +1,7 @@
-const GET_REVIEW_LIKE = 'http://localhost:3000/api/likeReview'
-const GET_REVIEW_LIKED = 'http://localhost:3000/api/likeReview/liked'
-const REVIEW_LIKE = 'http://localhost:3000/api/likeReview/addLike'
-const REVIEW_DELETE = 'http://localhost:3000/api/likeReview/removeLike'
+const GET_REVIEW_LIKE = 'https://booktalksapi-production.up.railway.app/api/likeReview'
+const GET_REVIEW_LIKED = 'https://booktalksapi-production.up.railway.app/api/likeReview/liked'
+const REVIEW_LIKE = 'https://booktalksapi-production.up.railway.app/api/likeReview/addLike'
+const REVIEW_DELETE = 'https://booktalksapi-production.up.railway.app/api/likeReview/removeLike'
 
 const COLUMN_REVIEW = 'review'
 const COLUMN_USER = 'user'
