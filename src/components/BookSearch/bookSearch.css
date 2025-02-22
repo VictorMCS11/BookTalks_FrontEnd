@@ -51,9 +51,11 @@ a{
     border: 1px solid rgb(0, 0, 0);
     border-left: 0;
     border-radius: 0 5px 5px 0px;
+    transition: .2s;
 }
 .delete_search:hover{
     cursor: pointer;
+    opacity: .9;
 }
 .delete_search > img{
     height: 100%;
