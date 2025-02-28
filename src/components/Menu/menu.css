@@ -136,6 +136,7 @@
     align-items: end;
     gap: 2px;
     text-decoration: none;
+    object-fit: contain;
 }
 .menu_logo > img{
     height: 100%;
@@ -365,8 +366,7 @@
     .menu_open_close > img{
         display: block;
         margin: auto;
-        height: 70%;
-        width: 70%;
+        height: 40px;
     }
     .menu_opened{
         display: none;
