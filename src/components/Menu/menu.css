@@ -129,8 +129,8 @@
 .menu_logo{
     /* position: absolute; */
     margin-top: 5px;
-    height: 60px;
-    width: 90px;
+    height: 45px;
+    width: max-content;
     left: 50px;
     display: flex;
     align-items: end;

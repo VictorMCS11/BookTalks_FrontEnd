@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useAuth } from '../Authentication/AuthProvider'
-import logo from '../../assets/img/logo.png'
+import logo_name from '../../assets/img/logo_name.png'
 import menu_closed from '../../assets/img/menu_closed.svg'
 import menu_opened from '../../assets/img/menu_opened.svg'
 import './menu.css'
@@ -65,7 +65,7 @@ export function Menu() {
         !authentication.isAuthenticated ? (
             <section className="menu">
                 <div className="menu_container">
-                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalks</span></Link>
+                    <Link to={links[0].href} className="menu_logo"><img src={logo_name} alt="" /></Link>
                     <div className="menu_sections">
                         <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
                         <div className="talks">
@@ -101,7 +101,7 @@ export function Menu() {
         ):(
             <section className="menu">
                 <div className="menu_container">
-                    <Link to={links[0].href} className="menu_logo"><img src={logo} alt="" /><span>BookTalks</span></Link>
+                    <Link to={links[0].href} className="menu_logo"><img src={logo_name} alt="" /></Link>
                     <div className="menu_sections">
                         <Link to={links[0].href} className="menu_option">{links[0].name}</Link>
                         <div className="talks">
